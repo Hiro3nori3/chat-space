@@ -3,9 +3,9 @@
 ## usersテーブル
 |column|type|option|
 |:-:|:-:|:-:|
-|name    |string|NOT NULL, unique true|
-|email   |string|NOT NULL, unique true|
-|password|integer|NOT NULL            |
+|name|string|NOT NULL, unique true|
+|email|string|NOT NULL, unique true|
+|password|integer|NOT NULL|
 
 ## アソシエーション
 has_many :messages  
