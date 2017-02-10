@@ -1,19 +1,12 @@
 # DB設計
 
 ## usersテーブル
-<<<<<<< HEAD
+
 | column |  type  | option |
 |:------:|:------:|:------:|
 |name    |string|null false, unique true|
 |email   |string|null false, unique true|
 |password|string|null false|
-=======
-|column|type|option|
-|:-:|:-:|:-:|
-|name|string|NOT NULL, unique true|
-|email|string|NOT NULL, unique true|
-|password|integer|NOT NULL|
->>>>>>> origin/create-database
 
 ## アソシエーション
 has_many :messages  
