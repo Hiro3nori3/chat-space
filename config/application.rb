@@ -15,7 +15,7 @@ module ChatSpace
   end
 end
 # _test,_helper,_coffeeなどのファイルを生成しないに
-module PairsLike
+module ChatSpace
   class Application < Rails::Application
     # ここから下を追加
     config.generators do |g|
