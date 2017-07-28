@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore bundler gems.
+vendor/bundle
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -15,3 +18,4 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+public/uploads
