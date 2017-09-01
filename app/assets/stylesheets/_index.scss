@@ -1,197 +1,229 @@
 body, html {
-	  height: 100%;
-	}
+  height: 100%;
+}
 
+.leftcontent{
+  height: 100%;
+  width: 300px;
+  float: left;
+  background-color: #2f3e51;
+  overflow-y: auto;
 
-	.leftcontent{
-	  width: 300px;
-	  height: 100%;
-	  float: left;
-	  background-color: #2f3e51;
+  &--header{
+    height: 100px;
+    background-color: #253141;
+    position: relative;
+    position: fixed;
+    width: 300px;
 
+    &-user-name{
+      padding:35px 20px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      width: 200px;
+    }
 
-	    &--header{
-	      height: 100px;
-	      background-color: #253141;
-	      position: relative;
+    &-right-box{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding:35px 20px;
+    width: 50px;
+    height: 20px;
 
+      .btn-group1{
+        float:left;
 
-	      &-user-name{
-	        padding:35px 20px;
-	        color: white;
-	        font-size: 16px;
-	        font-weight: bold;
-	        width: 200px;
-	      }
+        .fa.fa-pencil-square-o{
+          color: white;
+          font-size: 20px;
+        }
+      }
 
+      .btn-group2{
+        float:right;
 
-	      &-right-box{
-	      position: absolute;
-	      right: 0;
-	      top: 0;
-	      padding:35px 20px;
-	      width: 50px;
-	      height: 20px;
+        .fa.fa-cog{
+        color: white;
+        font-size:20px;
+        }
+      }
+    }
+  }
 
+  &--bottom{
+    padding: 0 20px;
+    height: 100%;
+    font-size: 15px;
+    color: #FFFFFF;
+    margin-top: 100px;
 
-	       .fa.fa-pencil-square-o{
-	        color: white;
-	        font-size: 20px;
-	        }
+    &-group-talk{
+      font-size: 11px;
+      color: #FFFFFF;
+      padding:0 40px 0 0;
+    }
+  }
+}
 
+.rightbox{
+  height: 100%;
+  width: calc(100% - 300px);
+  position: relative;
+  float:right;
+  background-color: #ddd;
 
-	        .fa.fa-cog{
-	          color: white;
-	          font-size:20px;
-	          float:right;
-	        }
-	      }
-	    }
+  .rightcontent{
+    overflow-y: scroll;
+    height: calc(100% - 90px);
 
+  &--footer{
+    height: 90px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: whitesmoke;
 
-	    &--bottom{
-	      padding: 0 20px;
+    &-body{
+      height: 50px;
+      margin: 20px 0 20px 40px;
+      background-color: white;
+      width: calc(100% - 200px);
+      position: absolute;
 
+      & p{
+        font-size: 16px;
+        color: #999999;
+        line-height: 16px;
+        padding :17px 10px;
+        width: calc(100% - 100px)
+      }
+    }
 
-	      &-group-name{
-	        padding:20px 5px 0 0;
-	        font-size: 15px;
-	        color: #FFFFFF;
-	      }
+    &-button{
+      height: 50px;
+      background-color: white;
+      width: 100px;
+      float: right;
+      margin: 20px 40px 20px 15px;
+      background-color: #38AEF0;
 
+      &-send{
+      color: white;
+      font-size: 15px;
+      text-align: center;
+      padding: 15px 0;
+      }
+    }
+  }
 
-	      &-group-talk{
-	        font-size: 11px;
-	        color: #FFFFFF;
-	        padding:0 40px 0 0;
-	      }
-	    }
-	}
+  &--header{
+    height: 100px;
+    background-color: white;
+    padding: 0 40px;
+    position: relative;
+    position: fixed !important;
+    width: calc(100% - 370px);
 
+    &-name{
+      font-size: 20px;
+      color: #333333;
+      padding: 35px 15px 0 0;
+      width: 800px;
+    }
 
-	.rightcontent{
-	  width: calc(100% - 300px);
-	  height: 100%;
-	  float: right;
-	  background-color: #ddd;
+    &-members{
+      font-size: 12px;
+      color: #999999;
+      width: 800px;
+      & li{
+        display: inline-block;
+      }
+    }
 
+    &-edit{
+      height: 60px;
+      width: 100px;
+      margin: 20px 40px;
+      border: 2px solid #38AEF0;
+      position: absolute;
+      right: 0;
+      top: 0;
 
-	  &--footer{
-	    height: 90px;
-	    position: fixed;
-	    bottom: 0;
-	    width: calc(100% - 300px);
-	    background-color: #ddd;
+      &-button{
+        color: #38AEF0;
+        font-size: 15px;
+        text-align: center;
+        padding: 20px 0;
+        position: absolute;
+        right: 36px;
+        text-decoration: none;
+      }
+    }
+  }
+}
 
+  .rightcontent--content{
+    overflow-y:scroll;
+    height:100%;
+    margin-top: 100px;
+    &-speaker{
+      padding: 46px 40px 10px;
+      font-weight: bold;
+      font-size: 16px;
+      display:inline-block;
+    }
 
-	    &-form{
-	      height: 50px;
-	      margin: 20px 0 20px 40px;
-	      background-color: white;
-	      width: calc(100% - 200px);
-	      position: absolute;
+    .large-img{
+      width: 20%;
+      margin:40px;
+    }
 
+    &-timestamps{
+      font-size: 12px;
+      color: #999999;
+      display: inline;
+    }
 
-	      & p{
-	        font-size: 16px;
-	        color: #999999;
-	        line-height: 16px;
-	        padding :17px 10px;
-	        width: calc(100% - 100px)
-	      }
+    &-talk{
+      font-size: 14px;
+      padding: 0 0 0 40px;
+    }
+  }
+}
 
+.col{
+  color: #FFFFFF;
+}
+.group--name--box{
+  padding:20px 5px 0 0;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+.group--user--name{
+  font-size: 12px;
+  color: #999999;
+  width: 800px;
+  & li{
+    float: left;
+    width: 80px;
+  }
+}
+.fa.fa-picture-o{
+  float: right;
+  margin-right: 10px;
+  position: absolute;
+  right: 165px;
+  font-size: 20px;
+  top: 37px;
+}
+a {
+  text-decoration: none;
+  }
 
-	      .fa.fa-picture-o{
-	      float: right;
-	      margin-right: 10px;
-	      position: absolute;
-	      right: 0;
-	      font-size: 20px;
-	      top: 15px;
-	      }
-	    }
-
-
-	    &-button{
-	      height: 50px;
-	      background-color: white;
-	      width: 100px;
-	      float: right;
-	      margin: 20px 40px 20px 15px;
-	      background-color: #38AEF0;
-
-
-	      &-send{
-	      color: white;
-	      font-size: 15px;
-	      text-align: center;
-	      padding: 15px 0;
-	      }
-	    }
-	  }
-
-
-	  &--header{
-	    height: 100px;
-	    background-color: white;
-	    padding: 0 40px;
-	    position: relative;
-
-
-	    &-name{
-	      font-size: 20px;
-	      color: #333333;
-	      padding: 35px 15px 0 0;
-	      width: 800px;
-	    }
-
-
-	    &-members{
-	      font-size: 12px;
-	      color: #999999;
-	      width: 800px;
-	    }
-
-
-	    &-edit{
-	      height: 60px;
-	      width: 100px;
-	      margin: 20px 40px;
-	      border: 2px solid #38AEF0;
-	      position: absolute;
-	      right: 0;
-	      top: 0;
-
-
-	      &-button{
-	        color: #38AEF0;
-	        font-size: 15px;
-	        text-align: center;
-	        padding: 20px 0;
-	      }
-	    }
-	  }
-
-
-	  &--main{
-	    &-speaker{
-	      padding: 46px 40px 10px;
-	      font-weight: bold;
-	      font-size: 16px;
-	      display:inline-block;
-	    }
-
-
-	    &-timestamps{
-	      font-size: 12px;
-	      color: #999999;
-	      display: inline;
-	    }
-
-
-	    &-talk{
-	      font-size: 14px;
-	      padding: 0 0 0 40px;
-	    }
-	  }
-	}
+a:hover{
+font-color:red;
+text-decoration:underline;
+}
