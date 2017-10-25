@@ -79,6 +79,7 @@ body, html {
     height: calc(100% - 90px);
 
   &--footer{
+
     height: 90px;
     position: absolute;
     bottom: 0;
@@ -86,7 +87,7 @@ body, html {
     right: 0;
     background-color: whitesmoke;
 
-    &-body{
+    &__body{
       height: 50px;
       margin: 20px 0 20px 40px;
       background-color: white;
@@ -100,9 +101,25 @@ body, html {
         padding :17px 10px;
         width: calc(100% - 100px)
       }
+
+      &-form{
+            border: none;
+            box-sizing: border-box;
+            float: left;
+            height: 50px;
+            padding: 0 10px;
+            width: calc(100% - 50px);
+      }
+
+      &-file{
+        height: 50px;
+        float: right;
+        padding-right: 10px;
+
+      }
     }
 
-    &-button{
+    &__button{
       height: 50px;
       background-color: white;
       width: 100px;
@@ -111,10 +128,13 @@ body, html {
       background-color: #38AEF0;
 
       &-send{
-      color: white;
+      background-color: #38AEF0;
+      color: #fff;
+      border: none;
+      height: 50px;
       font-size: 15px;
       text-align: center;
-      padding: 15px 0;
+      padding: 0 30px;
       }
     }
   }
@@ -211,14 +231,13 @@ body, html {
     width: 80px;
   }
 }
-.fa.fa-picture-o{
-  float: right;
-  margin-right: 10px;
-  position: absolute;
-  right: 165px;
+
+
+.fa.fa-image {
   font-size: 20px;
-  top: 37px;
+  line-height: 50px;
 }
+
 a {
   text-decoration: none;
   }
