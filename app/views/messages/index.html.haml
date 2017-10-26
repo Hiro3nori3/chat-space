@@ -41,7 +41,7 @@
 							= image_tag message.image, class: "large-img"
 
 	.rightcontent--footer
-		= form_for [@group,@message], html: {id: 'new_form'} do |f|
+		= form_for [@group,@message], id: 'new_form'} do |f|
 			.rightcontent--footer__body
 				= f.text_field :body, placeholder: "type a message", class: "rightcontent--footer__body-form"
 				%label.rightcontent--footer__body-file
