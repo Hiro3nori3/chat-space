@@ -13,7 +13,7 @@ describe Message do
     it "is invalid without a body" do
       message.body = ""
       message.valid?
-      expect(message.errors[:body]).to include("を入力して下さい。")
+      expect(message.errors[:body_or_image]).to include("を入力してください。")
     end
 
     it "is invalid without a group_id" do
