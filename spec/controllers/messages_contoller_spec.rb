@@ -39,5 +39,7 @@ describe MessagesController, type: :controller do
 			it "redirects_to messages#index" do      post :create, params: { message: {body: message.body}, group_id: group, user_id: user }
 				expect(response).to redirect_to group_messages_path
 			end
+
 		end
+
 	end
