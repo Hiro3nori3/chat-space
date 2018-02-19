@@ -28,17 +28,7 @@
 			.rightcontent--header-edit
 				= link_to 'Edit', edit_group_path(@group), { class: "rightcontent--header-edit-button" }
 		.rightcontent--content
-			%ul.chat-messages
-				- @group.messages.each do |message|
-					%div.rightcontent--content-speaker
-						= message.user.name
-					%div.rightcontent--content-timestamps
-						= message.created_at
-					%div.rightcontent--content-talk
-						= message.body
-					- unless message.image.blank?
-						%div.image
-							= image_tag message.image, class: "large-img"
+			= render @messages
 
 	.rightcontent--footer
 		= form_for [@group,@message], html: {id: 'new_form'} do |f|
