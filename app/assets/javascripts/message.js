@@ -1,5 +1,5 @@
  $(function() {
-	function buildHTML(message){
+	function appendMessage(message){
 		var html = `<ul class="chat-messages">
 									<div class="rightcontent--content-speaker">
 									${message.user_name}
@@ -31,12 +31,12 @@
 			contentType: false
 		})
 			.done(function(data){
-				buildHTML(data);
+				appendMessage(data);
 				form.reset();
 				$('.rightcontent--content').animate({scrollTop: $('.rightcontent--content')[0].scrollHeight}, 'fast');
 			 })
 			.fail(function(){
-				alert('メッセージを入力してください2');
+				alert('メッセージを入力してください');
 			})
 			.always(function(){
 				$('.rightcontent--footer__button-send').prop("disabled", false);

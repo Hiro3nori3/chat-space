@@ -1,7 +1,7 @@
 %div.rightcontent--content-speaker
 	= message.user.name
 %div.rightcontent--content-timestamps
-	= message.created_at
+	= message_time(message)
 %div.rightcontent--content-talk
 	= message.body
 - unless message.image.blank?

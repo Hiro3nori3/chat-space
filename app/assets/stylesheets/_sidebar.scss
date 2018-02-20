@@ -2,12 +2,12 @@
   height: 100%;
   width: 300px;
   float: left;
-  background-color: #2f3e51;
+  background-color: $leftcontent-body;
   overflow-y: auto;
 
   &--header{
     height: 100px;
-    background-color: #253141;
+    background-color: $leftcontent-header;
     position: relative;
     position: fixed;
     width: 300px;

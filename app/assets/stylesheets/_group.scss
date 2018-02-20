@@ -98,7 +98,7 @@
       cursor: pointer;
 
       &__btn--add {
-        color: #38aef0;
+        color: $rightcontent-footer-button;
       }
 
       &__btn--remove {
@@ -111,7 +111,7 @@
     display: inline-block;
     padding: 12px 20px;
     color: #fff;
-    background-color: #38aef0;
+    background-color: $rightcontent-footer-button;
     border: 0;
   }
 
