@@ -10,10 +10,17 @@
 				= link_to edit_user_registration_path(current_user.groups) do
 					.fa.fa-cog{"aria-hidden": true}
 	.leftcontent--bottom
-		%p.leftcontent--bottom-group-name
-			- @groups.each do |group|
-				%ul.group--name--box
-					= link_to group.name ,group_messages_path(group), style: "color:white;"
-				.leftcontent--bottom-group-talk
-					= group.messages.last.try(:body) || "まだメッセージはありません"
-
+		- @groups.each do |group|
+			%ul.group--name--box
+				= link_to group.name ,group_messages_path(group), style: "color:white;"
+			.leftcontent--bottom-group-talk
+				- if group.messages.present?
+					- group.messages.each do |message|
+						- if message.present? && message.image.present?
+							=	"画像を投稿しました"
+						- if message.present? && !(message.image.present?)
+							= group.messages.last.try(:body) || "まだメッセージはありません"
+						- if (message.nil?)
+							=	"まだメッセージはありません"
+				- else
+					= "まだメッセージはありません"
