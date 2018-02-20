@@ -11,8 +11,8 @@
 										${message.body}
 									</div>
 										</ul>`;
-			if(message.image.url) {
-				html = html.replace(/<\/ul>/g, `<div class="image"><img src="${message.image.url} class="large-img"><\/div><\/ul>`)
+			if(message.image.url != null) {
+				html = html.replace(/<\/ul>/g, `<div class="image"><img src="${message.image.url}" class="large-img"><\/div><\/ul>`)
 			}
 		$('.rightcontent--content').append(html);
 	}
