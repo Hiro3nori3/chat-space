@@ -2,71 +2,6 @@ body, html {
   height: 100%;
 }
 
-.leftcontent{
-  height: 100%;
-  width: 300px;
-  float: left;
-  background-color: #2f3e51;
-  overflow-y: auto;
-
-  &--header{
-    height: 100px;
-    background-color: #253141;
-    position: relative;
-    position: fixed;
-    width: 300px;
-
-    &-user-name{
-      padding:35px 20px;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      width: 200px;
-    }
-
-    &-right-box{
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding:35px 20px;
-    width: 50px;
-    height: 20px;
-
-      .btn-group1{
-        float:left;
-
-        .fa.fa-pencil-square-o{
-          color: white;
-          font-size: 20px;
-        }
-      }
-
-      .btn-group2{
-        float:right;
-
-        .fa.fa-cog{
-        color: white;
-        font-size:20px;
-        }
-      }
-    }
-  }
-
-  &--bottom{
-    padding: 0 20px;
-    height: 100%;
-    font-size: 15px;
-    color: #FFFFFF;
-    margin-top: 100px;
-
-    &-group-talk{
-      font-size: 11px;
-      color: #FFFFFF;
-      padding:0 40px 0 0;
-    }
-  }
-}
-
 .rightbox{
   height: 100%;
   width: calc(100% - 300px);
@@ -125,10 +60,10 @@ body, html {
       width: 100px;
       float: right;
       margin: 20px 40px 20px 15px;
-      background-color: #38AEF0;
+      background-color: $rightcontent-footer-button;
 
       &-send{
-      background-color: #38AEF0;
+      background-color: $rightcontent-footer-button;
       color: #fff;
       border: none;
       height: 50px;
@@ -167,7 +102,7 @@ body, html {
       height: 60px;
       width: 100px;
       margin: 20px 40px;
-      border: 2px solid #38AEF0;
+      border: 2px solid $rightcontent-footer-button;
       position: absolute;
       right: 0;
       top: 0;
@@ -183,34 +118,7 @@ body, html {
       }
     }
   }
-}
 
-  .rightcontent--content{
-    overflow-y:scroll;
-    height:100%;
-    margin-top: 100px;
-    &-speaker{
-      padding: 46px 40px 10px;
-      font-weight: bold;
-      font-size: 16px;
-      display:inline-block;
-    }
-
-    .large-img{
-      width: 20%;
-      margin:40px;
-    }
-
-    &-timestamps{
-      font-size: 12px;
-      color: #999999;
-      display: inline;
-    }
-
-    &-talk{
-      font-size: 14px;
-      padding: 0 0 0 40px;
-    }
   }
 }
 

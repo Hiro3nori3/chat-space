@@ -1,0 +1,28 @@
+.rightcontent--content{
+  overflow-y: scroll;
+  height: calc(100% - 100px);
+  margin-top: 100px;
+
+  &-speaker{
+    padding: 46px 40px 10px;
+    font-weight: bold;
+    font-size: 16px;
+    display:inline-block;
+  }
+
+  &-timestamps{
+    font-size: 12px;
+    color: #999999;
+    display: inline;
+  }
+
+  &-talk{
+    font-size: 14px;
+    padding: 0 0 0 40px;
+  }
+
+  .large-img{
+    width: 20%;
+    margin:40px;
+  }
+}

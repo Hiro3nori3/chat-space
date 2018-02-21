@@ -1,21 +1,5 @@
 %body
-.leftcontent
-	.leftcontent--header
-		%p.leftcontent--header-user-name
-			= current_user.name
-		%div.leftcontent--header-right-box
-			.btn-group1
-				= link_to new_group_path do
-					.fa.fa-pencil-square-o{"aria-hidden": true}
-			.btn-group2
-				= link_to edit_user_registration_path(current_user.groups) do
-					.fa.fa-cog{"aria-hidden": true}
-	.leftcontent--bottom
-		- @groups.each do |group|
-			%ul.group--name--box
-				= link_to group.name ,group_messages_path(group),{ style: "color: white;" }
-			.leftcontent--bottom-group-talk
-				= group.messages.last.try(:body) || "まだメッセージはありません"
+	= render partial: 'sidebar'
 .rightbox
 	.rightcontent
 		.rightcontent--header
@@ -29,23 +13,15 @@
 				= link_to 'Edit', edit_group_path(@group), { class: "rightcontent--header-edit-button" }
 		.rightcontent--content
 			%ul.chat-messages
-				- @group.messages.each do |message|
-					%div.rightcontent--content-speaker
-						= message.user.name
-					%div.rightcontent--content-timestamps
-						= message.created_at
-					%div.rightcontent--content-talk
-						= message.body
-					- unless message.image.blank?
-						%div.image
-							= image_tag message.image, class: "large-img"
+			- @group.messages.each do |message|
+				= render 'message', message: message
 
 	.rightcontent--footer
-		= form_for [@group,@message], id: {'new_form'} do |f|
+		= form_for [@group,@message] do |f|
 			.rightcontent--footer__body
 				= f.text_field :body, placeholder: "type a message", class: "rightcontent--footer__body-form"
 				%label.rightcontent--footer__body-file
 					= f.file_field :image, class: "image_form_button", style: "display: none;"
 					%i.fa.fa-image
 			.rightcontent--footer__button
-				= f.submit value: "Send", class: "rightcontent--footer__button-send"
+				= f.submit "Send", class: "rightcontent--footer__button-send"
