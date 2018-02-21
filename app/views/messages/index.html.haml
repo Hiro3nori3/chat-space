@@ -17,7 +17,7 @@
 				= render 'message', message: message
 
 	.rightcontent--footer
-		= form_for [@group,@message], html: {id: 'new_form'} do |f|
+		= form_for [@group,@message] do |f|
 			.rightcontent--footer__body
 				= f.text_field :body, placeholder: "type a message", class: "rightcontent--footer__body-form"
 				%label.rightcontent--footer__body-file

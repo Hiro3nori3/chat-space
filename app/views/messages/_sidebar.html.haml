@@ -14,10 +14,9 @@
 			%ul.group--name--box
 				= link_to group.name ,group_messages_path(group), style: "color:white;"
 			.leftcontent--bottom-group-talk
-			- if group.messages.present?
-				- if (group.messages.last.image?)
-					=	"画像を投稿しました"
-				- else
-					= group.messages.last.try(:body) || "まだメッセージはありません"
+			- if group.messages.present? && group.messages.last.image?
+				=	"画像を投稿しました"
+			- elsif group.messages.present?
+				= group.messages.last.try(:body) || "まだメッセージはありません"
 			- else
 				= "まだメッセージはありません"

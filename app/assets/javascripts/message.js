@@ -17,7 +17,7 @@
 		$('.rightcontent--content').append(html);
 	}
 
-	$('#new_form').on('submit', function(e){
+	$('#new_message').on('submit', function(e){
 		e.preventDefault();
 		var form = $(this).get(0);
 		var formData = new FormData(this);
