@@ -17,7 +17,7 @@
 			- if group.messages.present?
 				- if (group.messages.last.image?)
 					=	"画像を投稿しました"
-				- elsif
+				- else
 					= group.messages.last.try(:body) || "まだメッセージはありません"
 			- else
 				= "まだメッセージはありません"
