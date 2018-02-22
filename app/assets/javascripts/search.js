@@ -10,9 +10,9 @@ $(function() {
 	}
 
 	function appendNoUser(user) {
-		var html = `<li>
+		var html = `<p>
 									<div class='chat-group-user clearfix'>${ user }</div>
-								</li>`
+								</p>`
 		userList.append(html);
 	}
 
