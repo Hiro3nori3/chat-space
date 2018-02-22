@@ -28,7 +28,7 @@
 					= f.hidden_field :user_id, name: "group[user_ids][]", value: current_user.id
 					%p.chat-group-user__name
 						= current_user.name
-				- group.delete(current_user).each do |user|
+				- group.omit(current_user).each do |user|
 					.chat-group-user.clearfix
 						.chat-group-user__name
 						= user.name

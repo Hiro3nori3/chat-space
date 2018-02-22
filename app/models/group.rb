@@ -5,7 +5,7 @@ class Group < ApplicationRecord
 
 	validates :name, presence: true
 
-	def delete(current_user)
+	def omit(current_user)
 		other_users = self.users.select{|user| user != current_user}
 	end
 end
