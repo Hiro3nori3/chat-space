@@ -55,7 +55,7 @@
 			let windowUrl = window.location.href
 
 			$.ajax({
-				url: url,
+				url: windowUrl,
 				type: "GET",
 				dataType: 'json',
 			})
