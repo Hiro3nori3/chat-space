@@ -1,6 +1,6 @@
  $(function() {
 	function appendMessage(message){
-		var html = `<ul class="chat-messages">
+		var html = `<li data-message-id='${message.id}'>
 									<div class="rightcontent--content-speaker">
 									${message.user_name}
 									</div>
@@ -10,11 +10,17 @@
 									<div class="rightcontent--content-talk">
 										${message.body}
 									</div>
-										</ul>`;
+										</li>`;
 			if(message.image.url != null) {
-				html = html.replace(/<\/ul>/g, `<div class="image"><img src="${message.image.url}" class="large-img"><\/div><\/ul>`)
+				html = html.replace(/<\/li>/g, `<div class="image"><img src="${message.image.url}" class="large-img"><\/div><\/li>`)
 			}
-		$('.rightcontent--content').append(html);
+		$('.chat-messages').append(html);
+	}
+
+	function newMessage(message, lastId){
+		if (message.id > lastId){
+			appendMessage(message);
+		}
 	}
 
 	$('#new_message').on('submit', function(e){
@@ -41,5 +47,27 @@
 			.always(function(){
 				$('.rightcontent--footer__button-send').prop("disabled", false);
 			})
-	})
+	});
+
+	if (window.location.href.match(/\/groups\/\d+\/messages/)){
+		var fiveSecond = 5000
+		setInterval(function(){
+			var url = window.location.href
+
+			$.ajax({
+				url: url,
+				type: "GET",
+				dataType: 'json',
+			})
+			.done(function(messages){
+				lastId = $('li:last').data("messageid");
+				messages.forEach(function(message){
+					newMessage(message ,lastId);
+				});
+			})
+			.fail(function() {
+				alert('失敗しました');
+			})
+		}, fiveSecond);
+	}
 });
