@@ -17,12 +17,6 @@
 		$('.chat-messages').append(html);
 	}
 
-	function updateMessage(message, lastId){
-		if (message.id > lastId){
-			appendMessage(message);
-		}
-	}
-
 	$('#new_message').on('submit', function(e){
 		e.preventDefault();
 		var form = $(this).get(0);
@@ -62,7 +56,9 @@
 			.done(function(messages){
 				lastId = $('li:last').data("messageid");
 				messages.forEach(function(message){
-					updateMessage(message ,lastId);
+					if (message.id > lastId) {
+						appendMessage(message);
+					}
 				});
 			})
 			.fail(function() {
