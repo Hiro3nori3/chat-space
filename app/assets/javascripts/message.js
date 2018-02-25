@@ -52,7 +52,7 @@
 	if (window.location.href.match(/\/groups\/\d+\/messages/)){
 		const FIVESECOND = 5000
 		setInterval(function(){
-			var url = window.location.href
+			let windowUrl = window.location.href
 
 			$.ajax({
 				url: url,
