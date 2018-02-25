@@ -17,7 +17,7 @@
 		$('.chat-messages').append(html);
 	}
 
-	function newMessage(message, lastId){
+	function updateMessage(message, lastId){
 		if (message.id > lastId){
 			appendMessage(message);
 		}
@@ -50,7 +50,7 @@
 	});
 
 	if (window.location.href.match(/\/groups\/\d+\/messages/)){
-		var fiveSecond = 5000
+		const FIVESECOND = 5000
 		setInterval(function(){
 			var url = window.location.href
 
@@ -62,12 +62,12 @@
 			.done(function(messages){
 				lastId = $('li:last').data("messageid");
 				messages.forEach(function(message){
-					newMessage(message ,lastId);
+					updateMessage(message ,lastId);
 				});
 			})
 			.fail(function() {
 				alert('失敗しました');
 			})
-		}, fiveSecond);
+		}, FIVESECOND);
 	}
 });
