@@ -44,7 +44,7 @@
 	});
 
 	if (window.location.href.match(/\/groups\/\d+\/messages/)){
-		setInterval(autoUpdate,5000);
+		setInterval(autoUpdate,1000);
 	}
 
 	function autoUpdate(){
@@ -56,9 +56,12 @@
 			dataType: 'json',
 		})
 		.done(function(messages){
-			lastId = $('li:last').data("messageid");
 			messages.forEach(function(message){
-				if (message.id > lastId) {
+				lastId = $('li:last').data("messageid");
+				if (typeof lastId === "undefined") {
+					appendMessage(message)
+				}
+				else if (message.id > lastId) {
 					appendMessage(message);
 				}
 			});
