@@ -1,6 +1,6 @@
  $(function() {
 	function appendMessage(message){
-		var html = `<li data-message-id='${message.id}'>
+		var html = `<li class= "message-list" data-messageid='${message.id}'>
 									<div class="rightcontent--content-speaker">
 									${message.user_name}
 									</div>
@@ -44,26 +44,28 @@
 	});
 
 	if (window.location.href.match(/\/groups\/\d+\/messages/)){
-		const FIVESECOND = 5000
-		setInterval(function(){
-			let windowUrl = window.location.href
-
-			$.ajax({
-				url: windowUrl,
-				type: "GET",
-				dataType: 'json',
-			})
-			.done(function(messages){
-				lastId = $('li:last').data("messageid");
-				messages.forEach(function(message){
-					if (message.id > lastId) {
-						appendMessage(message);
-					}
-				});
-			})
-			.fail(function() {
-				alert('失敗しました');
-			})
-		}, FIVESECOND);
+		setInterval(autoUpdate,5000);
 	}
+
+	function autoUpdate(){
+		let windowUrl = window.location.href
+
+		$.ajax({
+			url: windowUrl,
+			type: "GET",
+			dataType: 'json',
+		})
+		.done(function(messages){
+			lastId = $('li:last').data("messageid");
+			console.log(lastId);
+			messages.forEach(function(message){
+				if (message.id > lastId) {
+					appendMessage(message);
+				}
+			});
+		})
+		.fail(function() {
+			alert('失敗しました');
+		})
+	};
 });
