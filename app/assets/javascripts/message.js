@@ -57,7 +57,6 @@
 		})
 		.done(function(messages){
 			lastId = $('li:last').data("messageid");
-			console.log(lastId);
 			messages.forEach(function(message){
 				if (message.id > lastId) {
 					appendMessage(message);
