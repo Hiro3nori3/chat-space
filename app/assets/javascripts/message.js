@@ -58,11 +58,8 @@
 		.done(function(messages){
 			messages.forEach(function(message){
 				lastId = $('li:last').data("messageid");
-				if (typeof lastId === "undefined") {
+				if (typeof lastId === "undefined" || message.id > lastId) {
 					appendMessage(message)
-				}
-				else if (message.id > lastId) {
-					appendMessage(message);
 				}
 			});
 		})
