@@ -55,13 +55,7 @@
 		let windowUrl = window.location.href
 		var lastId;
 		var $lastMessage = $('li:last');
-		if($lastMessage){
-			lastId = $lastMessage.data("messageid");
-		}
-		else {
-			lastId = 0;
-		}
-
+		lastId = $lastMessage ? $lastMessage.data("messageid") : 0
 		$.ajax({
 			url: windowUrl,
 			type: "GET",
