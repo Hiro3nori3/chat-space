@@ -44,20 +44,21 @@
 	});
 
 	if (window.location.href.match(/\/groups\/\d+\/messages/)){
-		setInterval(autoUpdate,1000);
+		setInterval(autoUpdate,5000);
 	}
 
 	function autoUpdate(){
 		let windowUrl = window.location.href
+		var lastId = $('li:last').data("messageid");
 
 		$.ajax({
 			url: windowUrl,
 			type: "GET",
+			// data: {id: lastId},
 			dataType: 'json',
 		})
 		.done(function(messages){
 			messages.forEach(function(message){
-				lastId = $('li:last').data("messageid");
 				if (typeof lastId === "undefined" || message.id > lastId) {
 					appendMessage(message)
 				}
