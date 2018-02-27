@@ -17,6 +17,10 @@
 		$('.chat-messages').append(html);
 	}
 
+	function scrollDown(){
+		$('.rightcontent--content').animate({scrollTop: $('.rightcontent--content')[0].scrollHeight}, 'fast');
+	}
+
 	$('#new_message').on('submit', function(e){
 		e.preventDefault();
 		var form = $(this).get(0);
@@ -33,7 +37,7 @@
 			.done(function(data){
 				appendMessage(data);
 				form.reset();
-				$('.rightcontent--content').animate({scrollTop: $('.rightcontent--content')[0].scrollHeight}, 'fast');
+				scrollDown();
 			 })
 			.fail(function(){
 				alert('メッセージを入力してください');
@@ -61,6 +65,7 @@
 			messages.forEach(function(message){
 				if (typeof lastId === "undefined" || message.id > lastId) {
 					appendMessage(message)
+					scrollDown();
 				}
 			});
 		})
