@@ -1,9 +1,10 @@
-%div.rightcontent--content-speaker
-	= message.user.name
-%div.rightcontent--content-timestamps
-	= message_time(message)
-%div.rightcontent--content-talk
-	= message.body
-- unless message.image.blank?
-	%div.image
-		= image_tag message.image, class: "large-img"
+%li.message-list{'data-messageid': message.id }
+	%div.rightcontent--content-speaker
+		= message.user.name
+	%div.rightcontent--content-timestamps
+		= message_time(message)
+	%div.rightcontent--content-talk
+		= message.body
+	- unless message.image.blank?
+		%div.image
+			= image_tag message.image, class: "large-img"

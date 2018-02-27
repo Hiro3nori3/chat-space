@@ -1,6 +1,6 @@
  $(function() {
 	function appendMessage(message){
-		var html = `<ul class="chat-messages">
+		var html = `<li class= "message-list" data-messageid='${message.id}'>
 									<div class="rightcontent--content-speaker">
 									${message.user_name}
 									</div>
@@ -10,11 +10,15 @@
 									<div class="rightcontent--content-talk">
 										${message.body}
 									</div>
-										</ul>`;
+										</li>`;
 			if(message.image.url != null) {
-				html = html.replace(/<\/ul>/g, `<div class="image"><img src="${message.image.url}" class="large-img"><\/div><\/ul>`)
+				html = html.replace(/<\/li>/g, `<div class="image"><img src="${message.image.url}" class="large-img"><\/div><\/li>`)
 			}
-		$('.rightcontent--content').append(html);
+		$('.chat-messages').append(html);
+	}
+
+	function scrollDown(){
+		$('.rightcontent--content').animate({scrollTop: $('.rightcontent--content')[0].scrollHeight}, 'fast');
 	}
 
 	$('#new_message').on('submit', function(e){
@@ -33,7 +37,7 @@
 			.done(function(data){
 				appendMessage(data);
 				form.reset();
-				$('.rightcontent--content').animate({scrollTop: $('.rightcontent--content')[0].scrollHeight}, 'fast');
+				scrollDown();
 			 })
 			.fail(function(){
 				alert('メッセージを入力してください');
@@ -41,5 +45,33 @@
 			.always(function(){
 				$('.rightcontent--footer__button-send').prop("disabled", false);
 			})
-	})
+	});
+
+	if (window.location.href.match(/\/groups\/\d+\/messages/)){
+		setInterval(autoUpdate,5000);
+	}
+
+	function autoUpdate(){
+		let windowUrl = window.location.href
+		var lastId;
+		var $lastMessage = $('li:last');
+		lastId = $lastMessage ? $lastMessage.data("messageid") : 0
+		$.ajax({
+			url: windowUrl,
+			type: "GET",
+			data: {id: lastId},
+			dataType: 'json',
+		})
+		.done(function(messages){
+			messages.forEach(function(message){
+				if (lastId == 0 || message.id > lastId) {
+					appendMessage(message)
+					scrollDown();
+				}
+			});
+		})
+		.fail(function() {
+			alert('失敗しました');
+		})
+	};
 });

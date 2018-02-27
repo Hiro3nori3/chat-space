@@ -13,8 +13,8 @@
 				= link_to 'Edit', edit_group_path(@group), { class: "rightcontent--header-edit-button" }
 		.rightcontent--content
 			%ul.chat-messages
-			- @group.messages.each do |message|
-				= render 'message', message: message
+				- @group.messages.each do |message|
+					= render 'message', message: message
 
 	.rightcontent--footer
 		= form_for [@group,@message] do |f|
