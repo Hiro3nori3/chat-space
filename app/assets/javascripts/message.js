@@ -54,7 +54,7 @@
 		$.ajax({
 			url: windowUrl,
 			type: "GET",
-			// data: {id: lastId},
+			data: {id: lastId},
 			dataType: 'json',
 		})
 		.done(function(messages){
