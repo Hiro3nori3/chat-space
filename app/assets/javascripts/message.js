@@ -53,7 +53,14 @@
 
 	function autoUpdate(){
 		let windowUrl = window.location.href
-		var lastId = $('li:last').data("messageid");
+		var lastId;
+		var $lastMessage = $('li:last');
+		if($lastMessage){
+			lastId = $lastMessage.data("messageid");
+		}
+		else {
+			lastId = 0;
+		}
 
 		$.ajax({
 			url: windowUrl,
@@ -63,7 +70,7 @@
 		})
 		.done(function(messages){
 			messages.forEach(function(message){
-				if (typeof lastId === "undefined" || message.id > lastId) {
+				if (lastId == 0 || message.id > lastId) {
 					appendMessage(message)
 					scrollDown();
 				}
